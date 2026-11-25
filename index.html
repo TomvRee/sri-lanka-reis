@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressies van Sri Lanka - December 2026</title>
+
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+<style>
+:root{
+ --primary:#0f766e;
+ --secondary:#f59e0b;
+ --bg:#f5f7fa;
+ --card:#ffffff;
+ --text:#1f2937;
+}
+
+*{
+ box-sizing:border-box;
+ font-family:Arial,sans-serif;
+}
+
+body{
+ margin:0;
+ background:var(--bg);
+ color:var(--text);
+}
+
+header{
+ height:70vh;
+ background:
+ linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+ url('https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=1600&q=80');
+ background-size:cover;
+ background-position:center;
+ color:white;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ text-align:center;
+ padding:20px;
+}
+
+header h1{
+ font-size:3rem;
+ margin:0;
+}
+
+header p{
+ font-size:1.2rem;
+ max-width:800px;
+}
+
+section{
+ padding:40px;
+ max-width:1200px;
+ margin:auto;
+}
+
+#map{
+ height:650px;
+ border-radius:12px;
+}
+
+.day{
+ background:white;
+ margin-bottom:18px;
+ border-radius:12px;
+ overflow:hidden;
+ box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.day summary{
+ padding:20px;
+ cursor:pointer;
+ font-weight:bold;
+ font-size:1.15rem;
+ background:#0f766e;
+ color:white;
+}
+
+.day-content{
+ padding:20px;
+}
+
+.badge{
+ display:inline-block;
+ background:#f59e0b;
+ color:white;
+ padding:5px 10px;
+ border-radius:15px;
+ margin-right:5px;
+ margin-bottom:5px;
+}
+
+img.location{
+ width:100%;
+ border-radius:8px;
+ margin-top:15px;
+}
+
+footer{
+ background:#0f766e;
+ color:white;
+ text-align:center;
+ padding:30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Impressies van Sri Lanka</h1>
+<p>
+04 t/m 16 december 2026
+Een rondreis langs eeuwenoude koningssteden, UNESCO-werelderfgoed,
+theevelden, nationale parken en tropische kustplaatsen.
+</p>
+</header>
+
+<section>
+<h2>Routekaart</h2>
+<div id="map"></div>
+</section>
+
+<section>
+<h2>Dagprogramma</h2>
+
+<details class="day" open>
+<summary>5 december • Colombo → Negombo</summary>
+<div class="day-content">
+<span class="badge">Aankomst</span>
+<span class="badge">Negombo</span>
+<p>
+Kennismaking met Sri Lanka. Na aankomst in Colombo transfer naar Negombo.
+Eerste indruk van het kleurrijke straatleven, tuktuks en palmbomen.
+Overnachting in Negombo inclusief diner.
+</p>
+<img class="location"
+src="https://images.unsplash.com/photo-1566737236500-c8ac43014a8e?auto=format&fit=crop&w=1200&q=80">
+</div>
+</details>
+
+<details class="day">
+<summary>6 december • Dambulla & Sigiriya</summary>
+<div class="day-content">
+<span class="badge">Dorpstour</span>
+<span class="badge">Lunch inbegrepen</span>
+
+<p>
+Fietstocht langs rijstvelden, traditionele catamaranvaart en bezoek aan
+een lokaal dorp. Optionele safari in Minneriya National Park waar
+regelmatig wilde olifanten worden gezien.
+</p>
+
+<img class="location"
+src="https://images.unsplash.com/photo-1580394694224-e7e1d66ef3d9?auto=format&fit=crop&w=1200&q=80">
+</div>
+</details>
+
+<details class="day">
+<summary>7 december • Anuradhapura & Mihintale</summary>
+<div class="day-content">
+<span class="badge">UNESCO</span>
+
+<p>
+Bezoek aan de eerste hoofdstad van Sri Lanka. Ruïnes, stoepa's,
+waterreservoirs en de heilige rots van Mihintale.
+</p>
+
+<img class="location"
+src="https://images.unsplash.com/photo-1622295027349-145b35af83c8?auto=format&fit=crop&w=1200&q=80">
+</div>
+</details>
+
+<details class="day">
+<summary>8 december • Sigiriya & Polonnaruwa</summary>
+<div class="day-content">
+
+<span class="badge">UNESCO</span>
+<span class="badge">Leeuwenrots</span>
+
+<p>
+Beklimming van de beroemde Leeuwenrots van Sigiriya.
+Daarna bezoek aan Polonnaruwa met Gal Vihara en
+Parakrama Samudra.
+</p>
+
+<img class="location"
+src="https://images.unsplash.com/photo-1613983952764-b83ad0d68578?auto=format&fit=crop&w=1200&q=80">
+</div>
+</details>
+
+<details class="day">
+<summary>9 december • Dambulla → Kandy</summary>
+<div class="day-content">
+
+<span class="badge">UNESCO</span>
+<span class="badge">Ayurveda</span>
+
+<p>
+Bezoek aan de Gouden Tempel van Dambulla,
+traditionele Ayurvedische geneeskunde in Matale
+en aankomst in Kandy.
+</p>
+
+<img class="location"
+src="https://images.unsplash.com/photo-1598520106830-8c45c2035460?auto=format&fit=crop&w=1200&q=80">
+</div>
+</details>
+
+<details class="day">
+<summary>10 december • Kandy</summary>
+<div class="day-content">
+
+<span class="badge">Tempel van de Tand</span>
+
+<p>
+Bezoek aan een van de heiligste boeddhistische tempels ter wereld.
+Vrije middag. Optionele Kandyaanse culturele show.
+</p>
+
+<img class="location"
+src="https://images.unsplash.com/photo-1588416499018-d9656296a78b?auto=format&fit=crop&w=1200&q=80">
+</div>
+</details>
+
+<details class="day">
+<summary>11 december • Nuwara Eliya</summary>
+<div class="day-content">
+
+<span class="badge">Theevelden</span>
+<span class="badge">Ramboda</span>
+
+<p>
+Panoramisch uitzicht vanaf Ambuluwawa.
+Stop bij Ramboda Falls.
+Bezoek aan een theeplantage en theefabriek inclusief proeverij.
+</p>
+
+<img class="location"
+src="https://images.unsplash.com/photo-1536599424071-0b215a388ba7?auto=format&fit=crop&w=1200&q=80">
+</div>
+</details>
+
+<details class="day">
+<summary>12 december • Treinreis naar Ella</summary>
+<div class="day-content">
+
+<span class="badge">Treinreis</span>
+
+<p>
+De beroemde treinrit door de theevelden van Sri Lanka.
+Een van de mooiste treinroutes ter wereld.
+</p>
+
+<img class="location"
+src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?auto=format&fit=crop&w=1200&q=80">
+</div>
+</details>
+
+<details class="day">
+<summary>13 december • Udawalawe</summary>
+<div class="day-content">
+
+<span class="badge">Safari</span>
+
+<p>
+Optionele jeepsafari in Udawalawe National Park.
+Bekend om de grote aantallen wilde olifanten.
+</p>
+
+<img class="location"
+src="https://images.unsplash.com/photo-1564760055775-d63b17a55c44?auto=format&fit=crop&w=1200&q=80">
+</div>
+</details>
+
+<details class="day">
+<summary>14 december • Yala National Park</summary>
+<div class="day-content">
+
+<span class="badge">Luipaarden</span>
+
+<p>
+Optionele safari in Yala National Park.
+De beste plaats van Sri Lanka om luipaarden te spotten.
+</p>
+
+<img class="location"
+src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1200&q=80">
+</div>
+</details>
+
+<details class="day">
+<summary>15 december • Galle & Colombo</summary>
+<div class="day-content">
+
+<span class="badge">UNESCO</span>
+<span class="badge">Fort Galle</span>
+
+<p>
+Bezoek aan het historische Nederlandse fort van Galle.
+Aansluitend stadstour door Colombo en afscheidsdiner.
+</p>
+
+<img class="location"
+src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=1200&q=80">
+</div>
+</details>
+
+<details class="day">
+<summary>16 december • Vertrek</summary>
+<div class="day-content">
+<p>
+Transfer naar de luchthaven van Colombo voor de terugvlucht naar Nederland.
+</p>
+</div>
+</details>
+
+</section>
+
+<footer>
+Impressies van Sri Lanka • December 2026
+</footer>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+
+const map = L.map('map').setView([7.5,80.7],7);
+
+L.tileLayer(
+'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+{
+maxZoom:18,
+attribution:'© OpenStreetMap'
+}
+).addTo(map);
+
+const route = [
+[6.9271,79.8612],   // Colombo
+[7.2084,79.8358],   // Negombo
+[7.8742,80.6511],   // Dambulla
+[7.9570,80.7603],   // Sigiriya
+[8.3114,80.4037],   // Anuradhapura
+[8.3540,80.5030],   // Mihintale
+[7.9403,81.0188],   // Polonnaruwa
+[7.2906,80.6337],   // Kandy
+[6.9497,80.7891],   // Nuwara Eliya
+[6.8667,81.0466],   // Ella
+[6.4264,80.8883],   // Udawalawe
+[6.3768,81.5185],   // Yala
+[6.0329,80.2168],   // Galle
+[6.9271,79.8612]    // Colombo
+];
+
+L.polyline(route,{
+color:"#0f766e",
+weight:5
+}).addTo(map);
+
+route.forEach(point=>{
+ L.marker(point).addTo(map);
+});
+
+</script>
+
+</body>
+</html>
